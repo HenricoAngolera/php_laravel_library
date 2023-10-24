@@ -15,23 +15,26 @@ use App\Http\Controllers\LivrosController;
 |
 */
 
-
-Route::post('/livros', function() {
-    
+Route::prefix('/livros')
+  ->whereNumber('id')
+  ->controller(LivrosController::class)
+  ->name('livros.')
+  ->group(function() {
+  Route::post('/', 'store')
+    ->name('store');
+  
+  Route::get('/', 'index')
+   ->name('index');
+  
+  Route::get('/{id}', 'show')
+    ->name('show');
+  
+  Route::put('/{id}', 'edit')
+    ->name('edit');
+  
+  Route::delete('/{id}', 'destroy')
+    ->name('destroy');
 });
 
-Route::get('/livros', function () {
-    
-});
-
-Route::get('/livros/{id}', [LivrosController::class, 'show']);
-
-Route::put('/livros/{id}', function() {
-    
-});
-
-Route::delete('/livros/{id}', function() {
-    
-});
 
 ?>
