@@ -2,26 +2,50 @@
 
 namespace App\Http\Controllers;
 
-class LivrosController {
+use Illuminate\Http\Request;
 
-  public function store() {
-    echo "<h1>Criando livro</h1>";
-  }
+class LivrosController extends Controller
+{
 
-  public function index() {
-    echo "<h1>Mostrando todos os livros</h1>";
-  }
+    /**
+     * Store a newly created resource in storage.
+     */
+    public function store(Request $request)
+    {
+        //
+    }
 
-  public function show($id) {
-    echo "<h1>Mostrando livro $id</h1>";
-  }
+    /**
+     * Display a listing of the resource.
+     */
+    public function index()
+    {
+        //
+    }
 
-  public function edit($id) {
-    echo "<h1>Editando o livro $id</h1>";
-  }
 
-  public function destroy($id) {
-    echo "<h1>Apagando o livro $id</h1>";
-  }
+    /**
+     * Display the specified resource.
+     */
+    public function show(int $id)
+    {
+        //
+    }
+
+
+    /**
+     * Update the specified resource in storage.
+     */
+    public function update(Request $request, int $id)
+    {
+        //
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     */
+    public function destroy(string $id)
+    {
+        //
+    }
 }
-?>

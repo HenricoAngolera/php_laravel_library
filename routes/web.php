@@ -20,20 +20,20 @@ Route::prefix('/livros')
   ->controller(LivrosController::class)
   ->name('livros.')
   ->group(function() {
-  Route::post('/', 'store')
-    ->name('store');
-  
-  Route::get('/', 'index')
-   ->name('index');
-  
-  Route::get('/{id}', 'show')
-    ->name('show');
-  
-  Route::put('/{id}', 'edit')
-    ->name('edit');
-  
-  Route::delete('/{id}', 'destroy')
-    ->name('destroy');
+    Route::post('/', 'store')
+      ->name('store');
+    
+    Route::get('/', 'index')
+    ->name('index');
+    
+    Route::get('/{id}', 'show')
+      ->name('show');
+    
+    Route::put('/{id}', 'update')
+      ->name('update');
+    
+    Route::delete('/{id}', 'destroy')
+      ->name('destroy');
 });
 
 
