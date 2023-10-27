@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\LivrosController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,8 +15,25 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/teste', function() {
-    return "Teste com sucesso";
+Route::prefix('/livros')
+  ->whereNumber('id')
+  ->controller(LivrosController::class)
+  ->name('livros.')
+  ->group(function() {
+    Route::post('/', 'store')
+      ->name('store');
+
+    Route::get('/', 'index')
+    ->name('index');
+
+    Route::get('/{id}', 'show')
+      ->name('show');
+
+    Route::put('/{id}', 'update')
+      ->name('update');
+
+    Route::delete('/{id}', 'destroy')
+      ->name('destroy');
 });
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Livro;
 use Illuminate\Http\Request;
 
 class LivrosController extends Controller
@@ -12,7 +13,14 @@ class LivrosController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $livro = new Livro;
+        $livro->titulo = $request->input('titulo');
+        $livro->autor = $request->input('autor');
+        $livro->classificacao = $request->input('classificacao');
+        $livro->resenha = $request->input('resenha');
+        $livro->save();
+
+        return response()->json(['message' => 'Livro criado com sucesso'], 201);
     }
 
     /**
@@ -20,7 +28,7 @@ class LivrosController extends Controller
      */
     public function index()
     {
-        //
+        
     }
 
 

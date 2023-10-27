@@ -15,9 +15,8 @@ return new class extends Migration
             $table->id();
             $table->string('titulo');
             $table->string('autor');
-            $table->integer('cassificacao');
+            $table->integer('classificacao');
             $table->string('resenha');
-            $table->timestamps('data_adicao');
             $table->timestamps();
         });
     }

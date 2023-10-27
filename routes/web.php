@@ -2,7 +2,6 @@
 
 use Illuminate\Support\Facades\Route;
 
-use App\Http\Controllers\LivrosController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,26 +14,7 @@ use App\Http\Controllers\LivrosController;
 |
 */
 
-Route::prefix('/livros')
-  ->whereNumber('id')
-  ->controller(LivrosController::class)
-  ->name('livros.')
-  ->group(function() {
-    Route::post('/', 'store')
-      ->name('store');
-    
-    Route::get('/', 'index')
-    ->name('index');
-    
-    Route::get('/{id}', 'show')
-      ->name('show');
-    
-    Route::put('/{id}', 'update')
-      ->name('update');
-    
-    Route::delete('/{id}', 'destroy')
-      ->name('destroy');
-});
+
 
 
 ?>
