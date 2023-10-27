@@ -28,7 +28,7 @@ class LivrosController extends Controller
      */
     public function index()
     {
-        
+        return Livro::all();
     }
 
 
@@ -37,7 +37,7 @@ class LivrosController extends Controller
      */
     public function show(int $id)
     {
-        //
+        return Livro::findOrFail($id);
     }
 
 
@@ -46,7 +46,11 @@ class LivrosController extends Controller
      */
     public function update(Request $request, int $id)
     {
-        //
+        $livro = Livro::findOrFail($id);
+
+        $livro->update($request->all());
+
+        return $livro;
     }
 
     /**
@@ -54,6 +58,6 @@ class LivrosController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        return Livro::destroy($id);
     }
 }
